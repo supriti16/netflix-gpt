@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 import { API_BASE_URL, API_OPTIONS } from "../utils/constant";
 import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "../utils/movieSlice";
+import { addNowPlayingMovies, addUpcomingMovies } from "../utils/movieSlice";
 
-const useNowPlayingMovies = () => {
+const useUpcomingMovies = () => {
   const dispatch = useDispatch();
-  const getNowPlayingMovies = async () => {
+  const getUpcomingMovies = async () => {
     const data = await fetch(API_BASE_URL + "now_playing", API_OPTIONS);
     const json = await data.json();
-    dispatch(addNowPlayingMovies(json?.results));
+    dispatch(addUpcomingMovies(json?.results));
     console.log(json?.results);
   };
   useEffect(() => {
-    getNowPlayingMovies();
+    getUpcomingMovies();
   }, []);
 };
 
-export default useNowPlayingMovies;
+export default useUpcomingMovies;

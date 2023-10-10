@@ -1,9 +1,9 @@
 export const LOGO =
-  "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png";
+  "https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg";
 export const NETFLIX_BG_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/9db4a880-3034-4e98-bdea-5d983e86bf52/b5953637-091d-4e02-9754-2bfadc8a8f7c/IN-en-20230925-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 export const PHOTO_URL =
-  "https://static.vecteezy.com/system/resources/previews/020/765/399/non_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg";
+  "https://occ-0-2483-3647.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXvHfQy06KCq87W959_ASfZ78T-34XjYXvXndSdD6n9DKjeKaMooe7LiYFm2kVFFtB_wH6sT4g_5TC1cDFHso1g86IUDq10.png?r=962";
 export const API_OPTIONS= {
     method: 'GET',
     headers: {
@@ -11,3 +11,6 @@ export const API_OPTIONS= {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzVhOTQyMDI3Y2MzYmVmZTE0NDAzYjRiMjQ3YjIxNyIsInN1YiI6IjY1MjQ2OWFlNDQ3ZjljMDEzYTU1ZDViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zeiV0nKrXefMzHnJVSXWgEAZx-kgWDMsAoEX-wFMiHE'
     }
   };
+
+export const IMAGE_BASE_URL="https://image.tmdb.org/t/p/w780/";
+export const API_BASE_URL="https://api.themoviedb.org/3/movie/"
