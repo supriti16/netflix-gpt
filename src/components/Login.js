@@ -7,14 +7,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser } from "../utils/userSlice";
+import { NETFLIX_BG_IMG, PHOTO_URL } from "../utils/constant";
 const Login = () => {
   const dispatch =useDispatch()
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
 
   const email = useRef(null);
   const password = useRef(null);
@@ -40,12 +39,11 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullName.current.value,
-            photoURL: "https://static.vecteezy.com/system/resources/previews/020/765/399/non_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg",
+            photoURL: PHOTO_URL,
           })
             .then(() => {
               const {uid,email,displayName,photoURL} = auth.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -69,7 +67,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -87,7 +84,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9db4a880-3034-4e98-bdea-5d983e86bf52/b5953637-091d-4e02-9754-2bfadc8a8f7c/IN-en-20230925-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={NETFLIX_BG_IMG}
           alt="netflix-bg-image"
         />
       </div>
@@ -115,7 +112,7 @@ const Login = () => {
 
         <input
           ref={password}
-          type="text"
+          type="password"
           placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700"
         />
