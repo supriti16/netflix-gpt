@@ -5,12 +5,11 @@ import { auth } from "../utils/firebase";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-import { addUser, removeUser } from "../utils/slice/userSlice";
+import { addUser, removeUser } from "../utils/store/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants/constant";
 import DropdownComponent from "./Dropdown";
-import { toggleGptSearchView } from "../utils/slice/gptSlice";
-import { changeLanguage } from "../utils/slice/appConfigSlice";
-import DropdownArrow from "../assets/icons/drop-down.png";
+import { toggleGptSearchView } from "../utils/store/gptSlice";
+import { changeLanguage } from "../utils/store/appConfigSlice";
 
 const Header = () => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/slice/userSlice";
+import { addUser } from "../utils/store/userSlice";
 import { NETFLIX_BG_IMG, PHOTO_URL } from "../utils/constants/constant";
 const Login = () => {
   const dispatch =useDispatch()

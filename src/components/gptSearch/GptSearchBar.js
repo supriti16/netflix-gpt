@@ -6,7 +6,7 @@ import {
   SEARCH_API_STRING,
   API_OPTIONS,
 } from "../../utils/constants/constant";
-import { addSearchResult } from "../../utils/slice/movieSlice";
+import { addSearchResult } from "../../utils/store/movieSlice";
 
 const GptSearchBar = () => {
   const dispatch=useDispatch()

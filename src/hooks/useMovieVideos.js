@@ -5,7 +5,7 @@ import {
   MOVIE_API_STRING,
 } from "../utils/constants/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVideo } from "../utils/slice/movieSlice";
+import { addTrailerVideo } from "../utils/store/movieSlice";
 
 const useMovieVideos = (movieId) => {
   const dispatch = useDispatch();
