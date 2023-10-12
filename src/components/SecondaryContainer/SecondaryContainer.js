@@ -3,9 +3,7 @@ import MovieList from "./MovieList";
 import { useSelector } from "react-redux";
 
 const SecondaryContainer = () => {
-  //const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   const movies = useSelector((store) => store?.movies);
-  console.log('popularMovies',movies)
   if (movies === null) return;
   return (
     <div className="bg-black w-screen">

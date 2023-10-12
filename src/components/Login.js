@@ -8,8 +8,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { NETFLIX_BG_IMG, PHOTO_URL } from "../utils/constant";
+import { addUser } from "../utils/slice/userSlice";
+import { NETFLIX_BG_IMG, PHOTO_URL } from "../utils/constants/constant";
 const Login = () => {
   const dispatch =useDispatch()
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -52,7 +52,6 @@ const Login = () => {
           // ...
         })
         .catch((error) => {
-          console.log(error);
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + " - " + errorMessage);
