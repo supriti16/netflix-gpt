@@ -21,20 +21,20 @@ const GptSearchBar = () => {
     dispatch(addSearchResult(json?.results))
   };
   return (
-    <div className="pt-[13%] pb-[3%] flex justify-center ">
+    <div className="pt-[35%] md:pt-[10%] pb-[3%] flex justify-center">
       <form
-        className="w-1/2 grid grid-cols-12 bg-black"
+        className="md:w-1/2 w-[80%] grid grid-cols-12 bg-black"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
-          className="p-4 m-4 col-span-9 rounded-lg"
+          className="p-4 m-4 col-span-7 md:col-span-9 rounded-lg"
           placeholder={lang[language].gptSearchBarPlaceholder}
         />
         <button
           onClick={handleSearchClick}
-          className="col-span-3 px-4 py-2 m-4 bg-red-700 text-white rounded-lg"
+          className="col-span-5 md:col-span-3 px-4 py-2 m-4 bg-red-700 text-white rounded-lg"
         >
           {lang[language].search}
         </button>

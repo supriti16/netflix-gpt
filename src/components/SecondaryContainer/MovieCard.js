@@ -10,7 +10,7 @@ const MovieCard = ({ posterPath }) => {
 
     // </div>
     <div>
-      <div className="group relative w-48 pr-4 m-2 cursor-pointer hover:scale-105 transition duration-300 ease-in-out">
+      <div className="group relative w-36 md:w-48 pr-4 m-2 cursor-pointer hover:scale-105 transition duration-300 ease-in-out">
         <img className="rounded-lg" alt="" src={IMAGE_BASE_URL + posterPath} />
         <button
           className="invisible group-hover:visible  

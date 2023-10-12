@@ -10,7 +10,7 @@ import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants/constant";
 import DropdownComponent from "./Dropdown";
 import { toggleGptSearchView } from "../utils/store/gptSlice";
 import { changeLanguage } from "../utils/store/appConfigSlice";
-
+import DropdownArrow from "../assets/icons/drop-down.png";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,16 +57,16 @@ const Header = () => {
     return () => unsubscribe(); //to unsubscribe to this use effect(event listener) when this component unmounts
   }, []);
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
       <div className="p-2">
-        <img className="w-44" src={LOGO} alt="netflix-logo" />
+        <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="netflix-logo" />
       </div>
       {user && (
         <>
-          <div className="flex p-2">
+          <div className="flex p-2 flex-row">
            {showGptTitle&& <select
               onChange={handleLanguageChange}
-              className="p-2 fixed bg-gray-900 text-white -ml-[6%] rounded-lg"
+              className="p-2 fixed bg-gray-900 text-white md:-ml-[6%] ml-[50%] rounded-lg"
             >
               {SUPPORTED_LANGUAGES.map((ele) => (
                 <option key={ele.identifier} value={ele.identifier}>
@@ -74,38 +74,41 @@ const Header = () => {
                 </option>
               ))}
             </select>}
-            <img className="w-12 h-12" src={user?.photoURL} alt="userIcon" />
-            <DropdownComponent
+          
+            <img className="w-12 h-12 ml-[5%]" src={user?.photoURL} alt="userIcon" />
+            {/* <DropdownComponent
             user={user}
             handleSignOut={handleSignOut}
             handleGptSearch={handleGptSearch}
             title={showGptTitle ? "Go to Browse Page" : "Go to GPT Search"}
-          />
-            {/* <div className="group relative transition duration-300 ease-in-out">
-              <img className="w-6 h-5 mt-4 " alt="icon" src={DropdownArrow} />
-              <div class="invisible group-hover:visible  px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
+          /> */}
+            <div className="group relative transition duration-300 ease-in-out">
+              <img className="w-6 h-5 mt-4 ml-[5%]" alt="icon" src={DropdownArrow} />
+              <div class="invisible group-hover:visible flex flex-col px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
                 <a
                   class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#"
+                 onClick={handleGptSearch}
                 >
-                  Link #1
+                 {showGptTitle ? "Go to Browse Page" : "Go to GPT Search"}
                 </a>
                 <a
                   class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#"
+                 onClick={handleSignOut}
                 >
-                  Link #2
+                 Signout
                 </a>
                 <a
                   class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#"
+                 
                 >
                   Link #3
                 </a>
               </div>
             
-            </div> */}
-          </div>
+            </div>
+            </div>
+           
+     
         
           {/* <button
           className="invisible group-hover:visible  
